@@ -1,0 +1,28 @@
+
+ Names: Aaron VanderGraaff (avanderg)
+         Denis Pyryev (dpyryev)
+ Assignment 4
+ May 24, 2019
+ CPE 453
+ Professor Nico
+
+ This is a driver for Minix version 3.1.8
+
+ Description: 
+ Device driver that will hold a secret message 
+ for a specific user, and can be read only with special
+ permissions. Once the device has been opened, the user
+ who opened it now owns the secret. The device can be opened
+ as many times as the user wants for reading, but only once
+ for writing. Once it is opened for writing and reading, the
+ message resets once all the read and write file descriptors 
+ are closed. Driver supports service update and will preserve
+ the secret data. Driver also is capable of passing permissions
+ to a different user that the original owner specifies with
+ a uid in the ioctl() function using the SSGRANT flag.
+
+ The driver works as outlined in the spec, including the ioctl function to 
+ transfer ownership of a secret and preservation of state under a live 
+ update (ie service update /usr/sbin/secret). 
+ 
+
